@@ -1,0 +1,199 @@
+[0;36m==> [1;36mNotice:[m Build may be slow as Theos isn’t using all available CPU cores on this computer. Consider upgrading GNU Make: https://theos.dev/docs/parallel-building
+[1;31m> [1;3;39mMaking all for tweak ZZ_EvilScheme…[m
+[0;31m==> [1;39mPreprocessing EvilScheme.x…[m
+[0;32m==> [1;39mCompiling EvilScheme.x (arm64)…[m
+[0;33m==> [1;39mLinking tweak ZZ_EvilScheme (arm64)…[m
+ld: warning: -multiply_defined is obsolete
+[0;34m==> [1;39mGenerating debug symbols for ZZ_EvilScheme…[m
+[0;34m==> [1;39mStripping ZZ_EvilScheme (arm64)…[m
+[0;31m==> [1;39mPreprocessing EvilScheme.x…[m
+[0;32m==> [1;39mCompiling EvilScheme.x (arm64e)…[m
+[0;33m==> [1;39mLinking tweak ZZ_EvilScheme (arm64e)…[m
+ld: warning: -multiply_defined is obsolete
+ld: warning: ignoring file '/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/lib/iphone/rootless/EvilKit.framework/EvilKit': found architecture 'arm64', required architecture 'arm64e'
+[0;34m==> [1;39mGenerating debug symbols for ZZ_EvilScheme…[m
+[0;34m==> [1;39mStripping ZZ_EvilScheme (arm64e)…[m
+[0;34m==> [1;39mMerging tweak ZZ_EvilScheme…[m
+[0;34m==> [1;39mSigning ZZ_EvilScheme…[m
+[1;31m> [1;3;39mMaking all in EvilKit…[m
+[0;36m==> [1;36mNotice:[m Build may be slow as Theos isn’t using all available CPU cores on this computer. Consider upgrading GNU Make: https://theos.dev/docs/parallel-building
+[1;31m> [1;3;39mMaking all for framework EvilKit…[m
+[0;35m==> [1;39mCopying resource directories into the framework wrapper…[m
+[0;35m==> [1;39mCopying public headers into the framework wrapper…[m
+[0;32m==> [1;39mCompiling src/EVKAction.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVKTranslatedQueryPortion.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVKRegexSubstitutionPortion.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVKQueryItemLexicon.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVKKeyValuePathPortion.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVKStaticStringPortion.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVKAppAlternative.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVKMapItemUnwrapperPortion.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVKURLPortions.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVKPercentEncodablePortion.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/NSURL+ComponentAdditions.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVKFullURLPortion.m (arm64)…[m
+[0;33m==> [1;39mLinking framework EvilKit (arm64)…[m
+ld: warning: -multiply_defined is obsolete
+[0;34m==> [1;39mGenerating debug symbols for EvilKit…[m
+[0;34m==> [1;39mStripping EvilKit (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVKAction.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVKTranslatedQueryPortion.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVKRegexSubstitutionPortion.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVKQueryItemLexicon.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVKKeyValuePathPortion.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVKStaticStringPortion.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVKAppAlternative.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVKMapItemUnwrapperPortion.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVKURLPortions.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVKPercentEncodablePortion.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/NSURL+ComponentAdditions.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVKFullURLPortion.m (arm64e)…[m
+[0;33m==> [1;39mLinking framework EvilKit (arm64e)…[m
+ld: warning: -multiply_defined is obsolete
+[0;34m==> [1;39mGenerating debug symbols for EvilKit…[m
+[0;34m==> [1;39mStripping EvilKit (arm64e)…[m
+[0;34m==> [1;39mMerging framework EvilKit…[m
+[0;34m==> [1;39mSigning EvilKit…[m
+[1;31m> [1;3;39mMaking all in Prefs…[m
+[0;36m==> [1;36mNotice:[m Build may be slow as Theos isn’t using all available CPU cores on this computer. Consider upgrading GNU Make: https://theos.dev/docs/parallel-building
+[1;31m> [1;3;39mMaking all for bundle EvilSchemePrefs…[m
+[0;35m==> [1;39mCopying resource directories into the bundle wrapper…[m
+[0;32m==> [1;39mCompiling src/EVSQueryTranslatorVC.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSExperimentalPrefsVC.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSAppAlternativeWrapper.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSPortionVC.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSPortionVM.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSQueryLexiconVC.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSRootVC.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSLogVC.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSPreferenceManager.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSPresetListVC.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSOutlineVC.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSAppAlternativeVC.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSKeyValuePairVC.m (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSQueryLexiconWrapper.m (arm64)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0DataCell.m (arm64)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0DictionaryController.m (arm64)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0LinkCell.m (arm64)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0PickerCell.m (arm64)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0PureEditTextCell.m (arm64)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0ButtonCell.m (arm64)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0EditTextCell.m (arm64)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0ProseCell.m (arm64)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0ToggleCell.m (arm64)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0PrefVC.m (arm64)…[m
+[1mL0Prefs/L0PrefVC.m:11:59: [0m[0;1;35mwarning: [0m[1m'windows' is deprecated: first deprecated in iOS 15.0 - Use UIWindowScene.windows on a relevant window scene instead [-Wdeprecated-declarations][0m
+   11 |     NSArray *windows = [[UIApplication sharedApplication] windows];[0m
+      | [0;1;32m                                                          ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0mproperty 'windows' is declared deprecated here[0m
+  136 | @property(nonatomic,readonly) NSArray<__kindof UIWindow *>  *windows API_DEPRECATED("Use UIWindowScene.windows on a relevant window scene instead", ios(2.0, 15.0));[0m
+      | [0;1;32m                                                             ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0m'windows' has been explicitly marked deprecated here[0m
+[1mL0Prefs/L0PrefVC.m:55:54: [0m[0;1;35mwarning: [0m[1m'windows' is deprecated: first deprecated in iOS 15.0 - Use UIWindowScene.windows on a relevant window scene instead [-Wdeprecated-declarations][0m
+   55 |         window = [[[UIApplication sharedApplication] windows] firstObject];[0m
+      | [0;1;32m                                                     ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0mproperty 'windows' is declared deprecated here[0m
+  136 | @property(nonatomic,readonly) NSArray<__kindof UIWindow *>  *windows API_DEPRECATED("Use UIWindowScene.windows on a relevant window scene instead", ios(2.0, 15.0));[0m
+      | [0;1;32m                                                             ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0m'windows' has been explicitly marked deprecated here[0m
+[1mL0Prefs/L0PrefVC.m:67:58: [0m[0;1;35mwarning: [0m[1m'windows' is deprecated: first deprecated in iOS 15.0 - Use UIWindowScene.windows on a relevant window scene instead [-Wdeprecated-declarations][0m
+   67 |             window = [[[UIApplication sharedApplication] windows] firstObject];[0m
+      | [0;1;32m                                                         ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0mproperty 'windows' is declared deprecated here[0m
+  136 | @property(nonatomic,readonly) NSArray<__kindof UIWindow *>  *windows API_DEPRECATED("Use UIWindowScene.windows on a relevant window scene instead", ios(2.0, 15.0));[0m
+      | [0;1;32m                                                             ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0m'windows' has been explicitly marked deprecated here[0m
+3 warnings generated.
+[0;32m==> [1;39mCompiling L0Prefs/L0StepperCell.m (arm64)…[m
+[0;33m==> [1;39mLinking bundle EvilSchemePrefs (arm64)…[m
+ld: warning: -multiply_defined is obsolete
+[0;34m==> [1;39mGenerating debug symbols for EvilSchemePrefs…[m
+[0;34m==> [1;39mStripping EvilSchemePrefs (arm64)…[m
+[0;32m==> [1;39mCompiling src/EVSQueryTranslatorVC.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSExperimentalPrefsVC.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSAppAlternativeWrapper.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSPortionVC.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSPortionVM.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSQueryLexiconVC.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSRootVC.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSLogVC.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSPreferenceManager.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSPresetListVC.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSOutlineVC.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSAppAlternativeVC.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSKeyValuePairVC.m (arm64e)…[m
+[0;32m==> [1;39mCompiling src/EVSQueryLexiconWrapper.m (arm64e)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0DataCell.m (arm64e)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0DictionaryController.m (arm64e)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0LinkCell.m (arm64e)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0PickerCell.m (arm64e)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0PureEditTextCell.m (arm64e)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0ButtonCell.m (arm64e)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0EditTextCell.m (arm64e)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0ProseCell.m (arm64e)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0ToggleCell.m (arm64e)…[m
+[0;32m==> [1;39mCompiling L0Prefs/L0PrefVC.m (arm64e)…[m
+[1mL0Prefs/L0PrefVC.m:11:59: [0m[0;1;35mwarning: [0m[1m'windows' is deprecated: first deprecated in iOS 15.0 - Use UIWindowScene.windows on a relevant window scene instead [-Wdeprecated-declarations][0m
+   11 |     NSArray *windows = [[UIApplication sharedApplication] windows];[0m
+      | [0;1;32m                                                          ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0mproperty 'windows' is declared deprecated here[0m
+  136 | @property(nonatomic,readonly) NSArray<__kindof UIWindow *>  *windows API_DEPRECATED("Use UIWindowScene.windows on a relevant window scene instead", ios(2.0, 15.0));[0m
+      | [0;1;32m                                                             ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0m'windows' has been explicitly marked deprecated here[0m
+[1mL0Prefs/L0PrefVC.m:55:54: [0m[0;1;35mwarning: [0m[1m'windows' is deprecated: first deprecated in iOS 15.0 - Use UIWindowScene.windows on a relevant window scene instead [-Wdeprecated-declarations][0m
+   55 |         window = [[[UIApplication sharedApplication] windows] firstObject];[0m
+      | [0;1;32m                                                     ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0mproperty 'windows' is declared deprecated here[0m
+  136 | @property(nonatomic,readonly) NSArray<__kindof UIWindow *>  *windows API_DEPRECATED("Use UIWindowScene.windows on a relevant window scene instead", ios(2.0, 15.0));[0m
+      | [0;1;32m                                                             ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0m'windows' has been explicitly marked deprecated here[0m
+[1mL0Prefs/L0PrefVC.m:67:58: [0m[0;1;35mwarning: [0m[1m'windows' is deprecated: first deprecated in iOS 15.0 - Use UIWindowScene.windows on a relevant window scene instead [-Wdeprecated-declarations][0m
+   67 |             window = [[[UIApplication sharedApplication] windows] firstObject];[0m
+      | [0;1;32m                                                         ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0mproperty 'windows' is declared deprecated here[0m
+  136 | @property(nonatomic,readonly) NSArray<__kindof UIWindow *>  *windows API_DEPRECATED("Use UIWindowScene.windows on a relevant window scene instead", ios(2.0, 15.0));[0m
+      | [0;1;32m                                                             ^
+[0m[1m/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:136:62: [0m[0;1;36mnote: [0m'windows' has been explicitly marked deprecated here[0m
+3 warnings generated.
+[0;32m==> [1;39mCompiling L0Prefs/L0StepperCell.m (arm64e)…[m
+[0;33m==> [1;39mLinking bundle EvilSchemePrefs (arm64e)…[m
+ld: warning: -multiply_defined is obsolete
+ld: warning: ignoring file '/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/theos/lib/iphone/rootless/EvilKit.framework/EvilKit': found architecture 'arm64', required architecture 'arm64e'
+Undefined symbols for architecture arm64e:
+  "_OBJC_CLASS_$_EVKAction", referenced from:
+       in EVSPreferenceManager.m.b694d749.o
+  "_OBJC_CLASS_$_EVKAppAlternative", referenced from:
+       in EVSAppAlternativeWrapper.m.b694d749.o
+  "_OBJC_CLASS_$_EVKFullURLPortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+  "_OBJC_CLASS_$_EVKHostPortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+  "_OBJC_CLASS_$_EVKKeyValuePathPortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+  "_OBJC_CLASS_$_EVKMapItemUnwrapperPortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+  "_OBJC_CLASS_$_EVKQueryItemLexicon", referenced from:
+       in EVSQueryTranslatorVC.m.b694d749.o
+  "_OBJC_CLASS_$_EVKQueryParameterValuePortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+  "_OBJC_CLASS_$_EVKQueryPortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+  "_OBJC_CLASS_$_EVKRegexSubstitutionPortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+  "_OBJC_CLASS_$_EVKSchemePortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+  "_OBJC_CLASS_$_EVKStaticStringPortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+  "_OBJC_CLASS_$_EVKTranslatedQueryPortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+  "_OBJC_CLASS_$_EVKTrimmedPathPortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+  "_OBJC_CLASS_$_EVKTrimmedResourceSpecifierPortion", referenced from:
+       in EVSPortionVM.m.b694d749.o
+ld: symbol(s) not found for architecture arm64e
+clang: [0;1;31merror: [0m[1mlinker command failed with exit code 1 (use -v to see invocation)[0m
+make[4]: *** [/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/.theos/obj/arm64e/EvilSchemePrefs.bundle/EvilSchemePrefs] Error 1
+make[3]: *** [/Users/runner/work/EvilScheme-rootless/EvilScheme-rootless/.theos/obj/arm64e/EvilSchemePrefs.bundle/EvilSchemePrefs] Error 2
+make[2]: *** [internal-bundle-all_] Error 2
+make[1]: *** [EvilSchemePrefs.all.bundle.variables] Error 2
+make: *** [internal-all] Error 2
