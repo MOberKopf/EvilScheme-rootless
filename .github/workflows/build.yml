@@ -8,6 +8,9 @@ on:
   release:
     types: [published]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: macos-latest
@@ -44,11 +47,12 @@ jobs:
 
       - name: Build EvilKit framework first
         run: |
-          set -eux
+          set -ux
+          set -o pipefail
           make -C EvilKit clean || true
           make -C EvilKit all FINALPACKAGE=1 \
             TARGET="iphone:clang:${{ steps.sdk.outputs.sdk }}:15.0" \
-            ARCHS="arm64"
+            ARCHS="arm64" 2>&1 | tee /tmp/evilkit.log
           # Theos stages the linked binary at .theos/obj/<arch>/ but the
           # staged wrapper lacks Headers, so assemble a framework bundle
           # for the -F search path manually: headers from src, binary staged.
@@ -61,13 +65,14 @@ jobs:
 
       - name: Build package
         run: |
-          set -eux
+          set -ux
+          set -o pipefail
           echo "THEOS=$THEOS"
           make package FINALPACKAGE=1 \
             THEOS_PACKAGE_SCHEME=rootless \
             THEOS_PLATFORM_DEB_COMPRESSION_TYPE=gzip \
             TARGET="iphone:clang:${{ steps.sdk.outputs.sdk }}:15.0" \
-            ARCHS="arm64"
+            ARCHS="arm64" 2>&1 | tee /tmp/build.log
           ls -la packages/
 
       - name: Upload deb artifact
@@ -76,3 +81,19 @@ jobs:
           name: evilscheme-rootless-deb
           path: packages/*.deb
           if-no-files-found: error
+
+      # Self-service failure logs: push full build output to the ci-logs
+      # branch so it can be fetched without API tokens (public repo).
+      # Branch push does not retrigger this workflow (master/main only).
+      - name: Publish failure logs to ci-logs branch
+        if: failure()
+        run: |
+          git config user.name "CI"
+          git config user.email "ci@users.noreply.github.com"
+          mkdir -p ci-logs
+          cp /tmp/evilkit.log ci-logs/ 2>/dev/null || echo "no evilkit log" > ci-logs/evilkit.log
+          cp /tmp/build.log ci-logs/ 2>/dev/null || echo "no build log" > ci-logs/build.log
+          echo "${{ github.sha }}" > ci-logs/sha.txt
+          git add -f ci-logs/
+          git commit -m "CI logs for ${{ github.sha }}" || true
+          git push --force origin HEAD:ci-logs
