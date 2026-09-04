@@ -24,6 +24,9 @@ EvilSchemePrefs_CFLAGS = -fobjc-arc
 # Prefs lives one directory deeper, hence ../EvilKit.
 EvilSchemePrefs_CFLAGS += -F$(_THIS_DIR)/../EvilKit
 EvilSchemePrefs_LDFLAGS += -F$(_THIS_DIR)/../EvilKit
+# L0Prefs helper lib uses pre-iOS-15 APIs (e.g. UIApplication.windows);
+# theos builds with -Werror, so don't fail on deprecation warnings.
+EvilSchemePrefs_CFLAGS += -Wno-error=deprecated-declarations
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 
