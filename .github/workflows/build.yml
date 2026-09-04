@@ -1,0 +1,32 @@
+name: Build (rootless)
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ghcr.io/theos/theos:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build package
+        run: |
+          echo "THEOS=$THEOS"
+          make package FINALPACKAGE=1 -j$(nproc)
+
+      - name: Show debs
+        run: ls -la packages/ || ls -la *.deb
+
+      - name: Upload deb artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: evilscheme-rootless-deb
+          path: packages/*.deb
+          if-no-files-found: error

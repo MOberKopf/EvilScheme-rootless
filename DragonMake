@@ -3,10 +3,9 @@ icmd: sbreload || killall backboardd
 
 all:
   target: ios
-  targetvers: 13.0
+  targetvers: 15.0
   archs:
     - arm64
-    - arm64e
 
 EvilKit:
   dir: EvilKit

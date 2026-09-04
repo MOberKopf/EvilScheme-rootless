@@ -54,7 +54,7 @@
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
-    return [self initWithRegex:[coder decodeObjectOfClass:[NSRegularExpression class] forKey:@"regex"]
+    return [self initWithRegex:[coder decodeObjectOfClass:[NSString class] forKey:@"regex"]
                       template:[coder decodeObjectOfClass:[NSString class] forKey:@"templet"]
      percentEncodingIterations:[coder decodeIntForKey:@"percentEncodingIterations"] ];
 }

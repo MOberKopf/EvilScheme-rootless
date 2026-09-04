@@ -43,7 +43,7 @@
 - (instancetype)initWithCoder:(NSCoder *)coder {
     return [self initWithTargetBundleID:[coder decodeObjectOfClass:[NSString class] forKey:@"targetBundleID"]
                      substituteBundleID:[coder decodeObjectOfClass:[NSString class] forKey:@"substituteBundleID"]
-                            urlOutlines:[coder decodeObjectOfClass:[NSDictionary class] forKey:@"urlOutlines"]];
+                            urlOutlines:[coder decodeObjectOfClass:[NSArray class] forKey:@"urlOutlines"]];
 }
 
 - (instancetype)copyWithZone:(NSZone *)zone {

@@ -354,10 +354,43 @@
 
     XCTAssertNil(error);
 
-    [NSKeyedUnarchiver unarchiveTopLevelObjectWithData:data
-                                                 error:&error];
-
+    // Decode the same way the tweak does in production (non-secure,
+    // see prefs() in EvilScheme.x) and verify round-trip integrity.
+    NSKeyedUnarchiver *u = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
     XCTAssertNil(error);
+    XCTAssertNotNil(u);
+    [u setRequiresSecureCoding:NO];
+    NSDictionary *decoded = [u decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+    XCTAssertNotNil(decoded);
+
+    // urlOutlines must survive archiving (regression test: they were
+    // once decoded as NSDictionary instead of NSArray, silently
+    // dropping every configured action).
+    EVKAppAlternative *browser2 = decoded[@"com.apple.mobilesafari"];
+    XCTAssertTrue([[browser2 urlOutlines] count] == [[browser urlOutlines] count]);
+    for(NSString *urlString in urlStrings) {
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSString *before = [[browser transformURL:url] absoluteString];
+        NSString *after = [[browser2 transformURL:url] absoluteString];
+        XCTAssertTrue((before == nil && after == nil) || [before isEqualToString:after]);
+    }
+
+    // Regex portions must survive too (regression test: regex was once
+    // decoded as NSRegularExpression instead of NSString).
+    EVKRegexSubstitutionPortion *regex = [EVKRegexSubstitutionPortion portionWithRegex:@".*?package=(.*?)(&|$).*"
+                                                                               template:@"$1"
+                                                              percentEncodingIterations:0];
+    NSData *rdata = [NSKeyedArchiver archivedDataWithRootObject:regex
+                                          requiringSecureCoding:NO
+                                                          error:&error];
+    XCTAssertNil(error);
+    NSKeyedUnarchiver *ru = [[NSKeyedUnarchiver alloc] initForReadingFromData:rdata error:&error];
+    XCTAssertNil(error);
+    [ru setRequiresSecureCoding:NO];
+    EVKRegexSubstitutionPortion *regex2 = [ru decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+    XCTAssertTrue([[regex2 regex] isEqualToString:[regex regex]]);
+    NSURL *cydiaURL = [NSURL URLWithString:@"cydia://url/https://cydia.saurik.com/api/share#?package=net.pane.l.evilscheme"];
+    XCTAssertTrue([[regex2 evaluateWithURL:cydiaURL] isEqualToString:[regex evaluateWithURL:cydiaURL]]);
 }
 #pragma GCC diagnostic pop
 

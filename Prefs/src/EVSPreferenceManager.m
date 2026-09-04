@@ -33,6 +33,7 @@ NSString *const alternativesPath = @"file:/var/mobile/Library/Preferences/EvilSc
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:prefsPath]
                                          options:0
                                            error:&err]; handle(err);
+    if(!data) return @[];
 
     NSArray *ret = [NSKeyedUnarchiver unarchiveTopLevelObjectWithData:data
                                                                 error:&err]; handle(err);
@@ -536,6 +537,7 @@ NSString *const alternativesPath = @"file:/var/mobile/Library/Preferences/EvilSc
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:blacklistPath]
                                          options:0
                                            error:&err]; handle(err);
+    if(!data) return @[];
     NSOrderedSet *set = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSOrderedSet class], [NSString class], nil]
                                                             fromData:data
                                                                error:&err]; handle(err);
@@ -559,6 +561,7 @@ NSString *const alternativesPath = @"file:/var/mobile/Library/Preferences/EvilSc
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:logPath]
                                          options:0
                                            error:&err]; handle(err);
+    if(!data) return nil;
 
     NSDictionary *ret = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSString class], [NSNumber class], nil]
                                                             fromData:data
