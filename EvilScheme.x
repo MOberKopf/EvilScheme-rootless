@@ -117,9 +117,13 @@ static NSURL *urlFromActions(NSArray *actions) {
         [settings enumerateIndexesUsingBlock:^ (NSUInteger idx, BOOL *stop) {
             id obj = [[action info] objectForSetting:idx];
             if([obj isKindOfClass:[NSData class]]) {
-                ret = [[NSKeyedUnarchiver unarchivedObjectOfClass:[UAUserActivityInfo class]
-                                                         fromData:obj
-                                                            error:nil] webpageURL];
+                // Resolved purely at runtime: UserActivity cannot be linked
+                // from the Xcode SDK. On-device the class always exists.
+                Class infoClass = NSClassFromString(@"UAUserActivityInfo");
+                id info = infoClass ? [NSKeyedUnarchiver unarchivedObjectOfClass:infoClass
+                                                                        fromData:obj
+                                                                           error:nil] : nil;
+                if([info respondsToSelector:@selector(webpageURL)]) ret = [info webpageURL];
             }
         }];
     }

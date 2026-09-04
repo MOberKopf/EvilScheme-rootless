@@ -7,7 +7,9 @@ include $(THEOS)/makefiles/common.mk
 TWEAK_NAME = ZZ_EvilScheme
 ZZ_EvilScheme_FILES = EvilScheme.x
 ZZ_EvilScheme_CFLAGS = -fobjc-arc
-ZZ_EvilScheme_PRIVATE_FRAMEWORKS = UserActivity CoreServices
+ZZ_EvilScheme_PRIVATE_FRAMEWORKS = CoreServices
+# NOTE: UserActivity intentionally NOT linked (absent from Xcode SDK):
+# UAUserActivityInfo is resolved purely at runtime via NSClassFromString.
 ZZ_EvilScheme_EXTRA_FRAMEWORKS += EvilKit
 # EvilKit is built as a subproject; allow the compiler/linker to find the
 # just-built EvilKit.framework before it is installed anywhere.
