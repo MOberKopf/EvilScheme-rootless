@@ -2,6 +2,10 @@ export THEOS_PACKAGE_SCHEME := rootless
 export ARCHS := arm64
 export TARGET := iphone:clang:latest:15.0
 
+# Anchor to this Makefile's own directory: THEOS_PROJECT_DIR is inherited
+# from the top-level make when built via aggregate, so it cannot be used here.
+_THIS_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
+
 include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = EvilSchemePrefs
@@ -18,8 +22,8 @@ EvilSchemePrefs_EXTRA_FRAMEWORKS += EvilKit
 EvilSchemePrefs_CFLAGS = -fobjc-arc
 # Same as top-level Makefile: EvilKit.framework is built first (see CI),
 # Prefs lives one directory deeper, hence ../EvilKit.
-EvilSchemePrefs_CFLAGS += -F$(THEOS_PROJECT_DIR)/../EvilKit
-EvilSchemePrefs_LDFLAGS += -F$(THEOS_PROJECT_DIR)/../EvilKit
+EvilSchemePrefs_CFLAGS += -F$(_THIS_DIR)/../EvilKit
+EvilSchemePrefs_LDFLAGS += -F$(_THIS_DIR)/../EvilKit
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 
