@@ -1,5 +1,5 @@
 export THEOS_PACKAGE_SCHEME := rootless
-export ARCHS := arm64
+export ARCHS := arm64 arm64e
 export TARGET := iphone:clang:latest:15.0
 
 # Anchor to this Makefile's own directory: THEOS_PROJECT_DIR is inherited

@@ -52,7 +52,7 @@ jobs:
           make -C EvilKit clean || true
           make -C EvilKit all FINALPACKAGE=1 \
             TARGET="iphone:clang:${{ steps.sdk.outputs.sdk }}:15.0" \
-            ARCHS="arm64" 2>&1 | tee /tmp/evilkit.log
+            ARCHS="arm64 arm64e" 2>&1 | tee /tmp/evilkit.log
           # Theos stages the linked binary at .theos/obj/<arch>/ but the
           # staged wrapper lacks Headers, so assemble a framework bundle
           # for the -F search path manually: headers from src, binary staged.
@@ -72,8 +72,13 @@ jobs:
             THEOS_PACKAGE_SCHEME=rootless \
             THEOS_PLATFORM_DEB_COMPRESSION_TYPE=gzip \
             TARGET="iphone:clang:${{ steps.sdk.outputs.sdk }}:15.0" \
-            ARCHS="arm64" 2>&1 | tee /tmp/build.log
+            ARCHS="arm64 arm64e" 2>&1 | tee /tmp/build.log
           ls -la packages/
+
+      - name: Verify arm64e slices (needed for iPhone XS)
+        run: |
+          find .theos EvilKit -type f \( -name ZZ_EvilScheme.dylib -o -name EvilSchemePrefs -o -name EvilKit \) -print -exec lipo -info {} \;
+          find .theos -type f \( -name ZZ_EvilScheme.dylib -o -name EvilKit \) -print -exec lipo -info {} \; | grep -q arm64e
 
       - name: Upload deb artifact
         uses: actions/upload-artifact@v4
