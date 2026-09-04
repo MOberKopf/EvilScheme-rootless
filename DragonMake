@@ -15,8 +15,6 @@ EvilKit:
     - 'src/*.m'
   public_headers:
     - 'src/*.h'
-  frameworks:
-    - GeoServices
 
 ZZ_EvilScheme:
   type: tweak

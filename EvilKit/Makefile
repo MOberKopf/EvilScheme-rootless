@@ -11,7 +11,10 @@ FRAMEWORK_NAME = EvilKit
 EvilKit_FILES = $(SAUCE)
 EvilKit_PUBLIC_HEADERS = $(HEADERS)
 EvilKit_INSTALL_PATH = /Library/Frameworks
-EvilKit_PRIVATE_FRAMEWORKS = GeoServices
+# NOTE: GeoServices intentionally NOT linked: EVKMapItemUnwrapperPortion
+# uses GEOMapItemStorage purely via the ObjC runtime (forward @interface),
+# and the GeoServices framework binary is not present in the Xcode SDK,
+# which breaks linking. At runtime on-device the class resolves normally.
 EvilKit_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/framework.mk
