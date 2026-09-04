@@ -15,18 +15,40 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: brew install make xz ldid
+      - name: Cache Theos
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/theos
+          key: theos-macos-rootless-v1
 
-      - name: Setup Theos
+      - name: Prepare Theos
+        uses: Randomblock1/theos-action@v1.5
+
+      - name: Pick SDK
+        id: sdk
         run: |
-          git clone --recursive https://github.com/theos/theos.git "$HOME/theos"
-          echo "THEOS=$HOME/theos" >> "$GITHUB_ENV"
-          echo "$(brew --prefix)/opt/make/libexec/gnubin" >> "$GITHUB_PATH"
+          set -eux
+          ls -la "$THEOS/sdks" || true
+          SDK=""
+          for cand in 16.5 16.2 16.1 16.0 15.6 15.5 15.0 14.5 14.4; do
+            if [ -d "$THEOS/sdks/iPhoneOS${cand}.sdk" ]; then
+              SDK="$cand"
+              break
+            fi
+          done
+          if [ -z "$SDK" ]; then
+            SDK=$(ls -d "$THEOS/sdks"/iPhoneOS*.sdk 2>/dev/null | sed 's/.*iPhoneOS//;s/.sdk//' | sort -V | tail -1)
+          fi
+          echo "Using SDK ${SDK}"
+          echo "sdk=${SDK}" >> "$GITHUB_OUTPUT"
 
       - name: Build EvilKit framework first
         run: |
-          make -C EvilKit all FINALPACKAGE=1
+          set -eux
+          make -C EvilKit clean || true
+          make -C EvilKit all FINALPACKAGE=1 \
+            TARGET="iphone:clang:${{ steps.sdk.outputs.sdk }}:15.0" \
+            ARCHS="arm64"
           # Theos stages the linked binary at .theos/obj/<arch>/ but the
           # staged wrapper lacks Headers, so assemble a framework bundle
           # for the -F search path manually: headers from src, binary staged.
@@ -39,11 +61,14 @@ jobs:
 
       - name: Build package
         run: |
+          set -eux
           echo "THEOS=$THEOS"
-          make package FINALPACKAGE=1
-
-      - name: Show debs
-        run: ls -la packages/
+          make package FINALPACKAGE=1 \
+            THEOS_PACKAGE_SCHEME=rootless \
+            THEOS_PLATFORM_DEB_COMPRESSION_TYPE=gzip \
+            TARGET="iphone:clang:${{ steps.sdk.outputs.sdk }}:15.0" \
+            ARCHS="arm64"
+          ls -la packages/
 
       - name: Upload deb artifact
         uses: actions/upload-artifact@v4
