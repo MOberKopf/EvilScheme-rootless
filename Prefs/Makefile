@@ -16,6 +16,10 @@ EvilSchemePrefs_FRAMEWORKS = UIKit
 EvilSchemePrefs_PRIVATE_FRAMEWORKS = Preferences
 EvilSchemePrefs_EXTRA_FRAMEWORKS += EvilKit
 EvilSchemePrefs_CFLAGS = -fobjc-arc
+# Same as top-level Makefile: EvilKit.framework is built first (see CI),
+# Prefs lives one directory deeper, hence ../EvilKit.
+EvilSchemePrefs_CFLAGS += -F$(THEOS_PROJECT_DIR)/../EvilKit
+EvilSchemePrefs_LDFLAGS += -F$(THEOS_PROJECT_DIR)/../EvilKit
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 

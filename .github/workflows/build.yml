@@ -24,10 +24,16 @@ jobs:
           echo "THEOS=$HOME/theos" >> "$GITHUB_ENV"
           echo "$(brew --prefix)/opt/make/libexec/gnubin" >> "$GITHUB_PATH"
 
+      - name: Build EvilKit framework first
+        run: |
+          make -C EvilKit all FINALPACKAGE=1
+          ls -d EvilKit/EvilKit.framework
+          ls EvilKit/EvilKit.framework/Headers | head
+
       - name: Build package
         run: |
           echo "THEOS=$THEOS"
-          make package FINALPACKAGE=1 -j"$(sysctl -n hw.ncpu)"
+          make package FINALPACKAGE=1
 
       - name: Show debs
         run: ls -la packages/
