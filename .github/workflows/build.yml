@@ -27,7 +27,9 @@ jobs:
       - name: Build EvilKit framework first
         run: |
           make -C EvilKit all FINALPACKAGE=1
-          ls -d EvilKit/EvilKit.framework
+          FW_STAGED="$(ls -d EvilKit/.theos/obj/*/EvilKit.framework | head -1)"
+          echo "Staged framework: $FW_STAGED"
+          cp -R "$FW_STAGED" EvilKit/EvilKit.framework
           ls EvilKit/EvilKit.framework/Headers | head
 
       - name: Build package
