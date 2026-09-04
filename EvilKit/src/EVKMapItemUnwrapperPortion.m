@@ -22,7 +22,7 @@
         // symbol that fails the link. On-device the class always exists.
         Class storageClass = NSClassFromString(@"GEOMapItemStorage");
         if(!storageClass) return nil;
-        NSDictionary *addr = [[storageClass alloc] initWithData:d] addressDictionary];
+        NSDictionary *addr = [[[storageClass alloc] initWithData:d] addressDictionary];
 
         return [NSString stringWithFormat:@"%@ %@ %@, %@ %@",
                 addr[@"Name"] ? : @"",
