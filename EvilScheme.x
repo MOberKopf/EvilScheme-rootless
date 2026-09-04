@@ -109,9 +109,11 @@ static void logString(NSString *lString) {
 static NSURL *urlFromActions(NSArray *actions) {
     __block NSURL *ret;
     if(![actions isKindOfClass:[NSArray class]]) return nil;
-    for(id candidate in actions) {
-        if(![candidate isKindOfClass:[BSAction class]]) continue;
-        BSAction *action = candidate;
+    // NOTE: no isKindOfClass check for BSAction here on purpose:
+    // referencing the class directly would require linking a private
+    // framework absent from the Xcode SDK. Messaging the objects is
+    // nil-safe (nil info -> nil settings -> enumeration is a no-op).
+    for(BSAction *action in actions) {
         NSIndexSet *settings = [[action info] allSettings];
         if(!settings) continue;
         [settings enumerateIndexesUsingBlock:^ (NSUInteger idx, BOOL *stop) {
