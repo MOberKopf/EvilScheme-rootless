@@ -27,10 +27,15 @@ jobs:
       - name: Build EvilKit framework first
         run: |
           make -C EvilKit all FINALPACKAGE=1
-          FW_STAGED="$(ls -d EvilKit/.theos/obj/*/EvilKit.framework | head -1)"
-          echo "Staged framework: $FW_STAGED"
-          cp -R "$FW_STAGED" EvilKit/EvilKit.framework
-          ls EvilKit/EvilKit.framework/Headers | head
+          # Theos stages the linked binary at .theos/obj/<arch>/ but the
+          # staged wrapper lacks Headers, so assemble a framework bundle
+          # for the -F search path manually: headers from src, binary staged.
+          FW_BIN="$(ls EvilKit/.theos/obj/*/EvilKit.framework/EvilKit | head -1)"
+          test -f "$FW_BIN"
+          mkdir -p EvilKit/EvilKit.framework/Headers
+          cp EvilKit/src/*.h EvilKit/EvilKit.framework/Headers/
+          cp "$FW_BIN" EvilKit/EvilKit.framework/EvilKit
+          test -f EvilKit/EvilKit.framework/Headers/EvilKit.h
 
       - name: Build package
         run: |
